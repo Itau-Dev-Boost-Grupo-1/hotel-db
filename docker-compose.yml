@@ -1,0 +1,17 @@
+ version: "3.0"
+ 
+ services:
+  mysql:
+    build: ./docker
+    container_name: hotel_db
+    working_dir: /sql_scripts
+    volumes:
+      - ./sql_scripts:/sql_scripts
+
+    ports: 
+      - 3307:3306
+
+    environment: 
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: hotel
+    tty: true
